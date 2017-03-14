@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/libs/jquery-3.1.1.min.js"></script>
+    <script src="js/libs/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="scss/styles.scss">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Title</title>
+</head>
+<body>
+    <div class="main-wrap">
+        <form method="post" id="formbox" onsubmit="onSubmit()">
+            <h1 class="title">Sign In</h1>
+            <div class="row">
+                <label for="name" class="label">
+                    <i class="icon-user"></i>
+                </label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="row">
+                <label for="surname" class="label">
+                    <i class="icon-user"></i>
+                </label>
+                <input type="text" id="surname" name="secondname">
+            </div>
+            <div class="row">
+                <label for="email" class="label">
+                    <i class="icon-envelop"></i>
+                </label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div class="row">
+                <select name="gender" id="select">
+                    <option value="" selected></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="password" class="label">
+                    <i class="icon-key2"></i>
+                </label>
+                <input type="password" id="password" name="pass">
+            </div>
+            <div class="row row-mod">
+                <input type="checkbox" id="checkbox" name="agreement">
+                <label for="checkbox" class="label label-mod">Conditions of Agreement</label>
+            </div>
+            <div class="row row-mod clearfix">
+                <input type="submit" value="Send" id="submit-btn">
+            </div>
+        </form>
+        <p class="error-message"></p>
+    </div>
+    <script src="js/custom.js"></script>
+</body>
+</html>
