@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/libs/jquery-3.1.1.min.js"></script>
     <script src="js/libs/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link href="css/jquery.bxslider.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="scss/styles.scss">
@@ -29,28 +31,36 @@
                 <ul class="j-comp-list-box__ul"></ul>
             </div>
         </div>
+    </div>
+    <div class="comp-partners">
+        <h2>Company Partners</h2>
+        <div class="comp-partners-box">
+            <ul class="comp-partners-box--ul">
+                <!--<li>
+                    <span class="circle">
+                        <p>45%</p>
+                    </span>
+                    <span class="square">
+                        <p>Apple</p>
+                    </span>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
         <div class="flex-child comp-location">
             <h2>
                 Companies by Location
             </h2>
+            <div id="piechart" style="width: 487px; height: 292px;"></div>
         </div>
         <div class="flex-child comp-news">
             <h2>
                 News
             </h2>
-            <ul class="carousel">
-                <!--<li class="carousel-box clearfix">
-                    <img src="img/img.jpg" alt="" class="author-photo">
-                    <h3>Title</h3>
-                    <p>Text text Text text Text text Text text Text text Text text Text text Text text Text text Text text Text text Text text Text text Text text
-                        Text text Text textText text Text textText text Text textText text Text text</p>
-                    <span class="author">Author</span>
-                    <p class="author-name">asdas</p><br>
-                    <span class="public">Public</span>
-                    <p class="public-date">30.10.2016</p>
-                </li>-->
-            </ul>
+            <ul class="carousel"></ul>
         </div>
+    </div>
     </div>
 </div>
 <script src="js/companies.js"></script>

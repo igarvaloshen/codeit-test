@@ -125,7 +125,8 @@ i {
   border: 1px solid #dddddd;
   border-radius: 2px;
   margin-bottom: 30px;
-  min-height: 290px; }
+  min-height: 290px;
+  position: relative; }
   .flex-child h2 {
     background-color: #eeeeee;
     font-size: 1em;
@@ -166,6 +167,16 @@ i {
 .comp-list-box ul :last-child {
   border-bottom: none; }
 
+.company-name-a {
+  cursor: pointer;
+  display: block; }
+
+.company-name:hover {
+  background-color: #eeeeee; }
+
+.active {
+  background-color: #eeeeee; }
+
 .carousel {
   width: 100%; }
 
@@ -190,11 +201,26 @@ i {
 .public,
 .public-date {
   display: inline-block;
-  font-size: 16px; }
+  font-size: 16px;
+  position: absolute;
+  left: 5%; }
 
 .author,
 .author-name {
-  margin-top: 15px; }
+  margin-top: 15px;
+  top: 80%; }
+
+.public,
+.public-date {
+  top: 100%; }
+
+.author-name {
+  left: 17%;
+  top: 79.5%; }
+
+.public-date {
+  left: 17%;
+  top: 99.5%; }
 
 .author,
 .public {
@@ -209,3 +235,68 @@ i {
 
 .bx-viewport {
   height: 100% !important; }
+
+.comp-partners {
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  display: none;
+  cursor: pointer; }
+  .comp-partners h2 {
+    background-color: #eeeeee;
+    font-size: 1em;
+    padding-left: 15px;
+    line-height: 40px;
+    border-bottom: 1px solid #dddddd; }
+
+.comp-partners-box {
+  box-sizing: border-box;
+  padding: 45px 15px 0;
+  max-height: 418px; }
+  .comp-partners-box ul {
+    overflow: hidden;
+    overflow-x: scroll;
+    max-height: 370px;
+    white-space: nowrap; }
+    .comp-partners-box ul li {
+      margin-right: 20px; }
+  .comp-partners-box .circle {
+    display: block;
+    height: 98px;
+    width: 98px;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    margin-bottom: 75px;
+    position: relative; }
+    .comp-partners-box .circle p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+  .comp-partners-box .square {
+    display: block;
+    height: 176px;
+    width: 98px;
+    border: 1px solid #000000;
+    position: relative; }
+    .comp-partners-box .square p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg); }
+  .comp-partners-box .square:before,
+  .comp-partners-box .square:after {
+    content: "";
+    position: absolute;
+    height: 75px;
+    width: 1px;
+    background-color: #000000;
+    top: -43%; }
+  .comp-partners-box .square:before {
+    left: 45px; }
+  .comp-partners-box .square:after {
+    right: 45px; }
+  .comp-partners-box ul {
+    list-style: none; }
+    .comp-partners-box ul li {
+      display: inline-block; }
