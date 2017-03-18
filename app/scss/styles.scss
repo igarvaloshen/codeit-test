@@ -256,6 +256,7 @@ i {
   margin-bottom: 30px;
   display: none;
   cursor: pointer;
+  position: relative;
   h2 {
     background-color: #eeeeee;
     font-size: 1em;
@@ -326,6 +327,12 @@ i {
       display: inline-block;
     }
   }
+}
+.loader {
+  position: absolute;
+  top: calc(50% + 20px);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 

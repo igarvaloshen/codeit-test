@@ -16,31 +16,53 @@ $(document).ready(function() {
             for (var i = 0; i < companies.list.length; i++) {
                 $("<li class='company-name'></li>").appendTo($(".j-comp-list-box__ul"));
                 companiesLocationList.push(companies.list[i].location.name);
-                partners.push(companies.list[i].partners);
+                partners.push(companies.list[i]);
             }
-            console.log(partners);
+            console.log(partners[4].partners[0].name);
             chartData = doublicate(companiesLocationList);
             addChart(chartData);
             $.each($('.company-name'), function (a) {
                 $("<a class='company-name-a'></a>").html(companies.list[a].name).appendTo(this)
             });
             $('.company-name-a').on('click', function () {
+                $('.comp-partners-box ul').children().remove();
                 var activeCompany = $(this).html();
                 $('.company-name').removeClass('active');
                 $(this).parent().addClass('active');
                 $(".comp-partners").slideDown(500);
+                (function addPartners() {
+                    var active = activeCompany;
+                    for (var i = 0; i < partners.length; i++) {
+                        if (active == partners[i].name) {
+                            for (var j = 0; j < partners[i].partners.length; j++) {
+                                $("<li><span class='circle'></span><span class='square'></span></li>").appendTo($(".comp-partners-box ul"));
+                                $('.square').children().remove();
+                                $.each($('.square'), function (a) {
+                                    $("<p></p>").html(partners[i].partners[a].name).appendTo(this)
+                                });
+                                $('.circle').children().remove();
+                                $.each($('.circle'), function (a) {
+                                    $("<p></p>").html(partners[i].partners[a].value).appendTo(this)
+                                });
+
+                            }
+                        }
+                    }
+                })();
                 return true;
             });
             $(".comp-partners").on('click', function(){
                 $(this).slideUp(500);
             });
+            $.each($(".flex-container"), function(a) {
+                $(".loader").remove();
+            })
         }
     });
     $.ajax({
         type: 'GET',
         url: 'http://codeit.pro/frontTestTask/news/getList',
         success: function (data) {
-
             news = data;
             for (var i = 0; i < news.list.length; i++) {
                 $("<li class='carousel-box clearfix'></li>").html($("<img src='' alt='' class='author-photo'>").attr('src',news.list[i].img)).appendTo($(".carousel"));
@@ -106,3 +128,5 @@ function doublicate(arr) {
     }
     return resultArr;
 }
+
+

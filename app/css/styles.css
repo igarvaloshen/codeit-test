@@ -241,7 +241,8 @@ i {
   border-radius: 2px;
   margin-bottom: 30px;
   display: none;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative; }
   .comp-partners h2 {
     background-color: #eeeeee;
     font-size: 1em;
@@ -300,3 +301,9 @@ i {
     list-style: none; }
     .comp-partners-box ul li {
       display: inline-block; }
+
+.loader {
+  position: absolute;
+  top: calc(50% + 20px);
+  left: 50%;
+  transform: translate(-50%, -50%); }
