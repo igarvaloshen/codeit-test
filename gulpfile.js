@@ -24,12 +24,12 @@ gulp.task('minify-css', function () {
         .pipe(csso())
         .pipe(gulp.dest('dist/css'));
 });
-gulp.task('scripts-concat', function() {
+gulp.task('concat', function() {
     return gulp.src('dist/js/*.js')
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist/js/'));
 });
-gulp.task('watch', ['browserSync', 'sass', 'minify', 'minify-css', 'scripts-concat'], function (){
+gulp.task('watch', ['browserSync', 'sass', 'minify', 'minify-css'], function (){
     gulp.watch('app/scss/**/*.scss', ['sass']);
     gulp.watch('app/css/**/*.css', browserSync.reload);
     gulp.watch('app/*.html', browserSync.reload);

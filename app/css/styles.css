@@ -245,15 +245,6 @@ input:focus:-ms-input-placeholder {
   font-weight: bold;
   font-style: italic; }
 
-.bx-wrapper {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: none;
-  height: 201px !important; }
-
-.bx-viewport {
-  height: 100% !important; }
-
 .comp-partners {
   border: 1px solid #dddddd;
   border-radius: 2px;
