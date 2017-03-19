@@ -18,9 +18,11 @@ $(document).ready(function() {
                 companiesLocationList.push(companies.list[i].location.name);
                 partners.push(companies.list[i]);
             }
-            console.log(partners[4].partners[0].name);
             chartData = doublicate(companiesLocationList);
             addChart(chartData);
+            $(window).resize(function(event) {
+                addChart(chartData);
+            });
             $.each($('.company-name'), function (a) {
                 $("<a class='company-name-a'></a>").html(companies.list[a].name).appendTo(this)
             });
@@ -42,7 +44,7 @@ $(document).ready(function() {
                                 });
                                 $('.circle').children().remove();
                                 $.each($('.circle'), function (a) {
-                                    $("<p></p>").html(partners[i].partners[a].value).appendTo(this)
+                                    $("<p></p>").html(partners[i].partners[a].value + "%").appendTo(this)
                                 });
 
                             }
@@ -65,15 +67,15 @@ $(document).ready(function() {
         success: function (data) {
             news = data;
             for (var i = 0; i < news.list.length; i++) {
-                $("<li class='carousel-box clearfix'></li>").html($("<img src='' alt='' class='author-photo'>").attr('src',news.list[i].img)).appendTo($(".carousel"));
+                $("<li class='carousel-box clearfix'></li>").html($("<img src='' alt='article image' class='author-photo'>").attr('src',news.list[i].img)).appendTo($(".carousel"));
             }
             $.each($('.carousel-box'), function(i) {
-                $("<h3></h3>").html(news.list[i].author).appendTo(this);
-                $("<p></p>").html(truncate(news.list[i].description, 185)).appendTo(this);
-                $("<span class='author'>Author:</span>").appendTo(this);
+                $("<a href='#'></a>").html(news.list[i].author).appendTo(this);
+                $("<p class='clearfix'></p>").html(truncate(news.list[i].description, 185)).css("margin-bottom", "15px").appendTo(this);
+                $("<span class='author'>Author: </span>").appendTo(this);
                 $("<p class='author-name'></p><br>").html(news.list[i].author).appendTo(this);
-                $("<span class='public'>Public:</span>").appendTo(this);
-                $("<p class='public-date'></p>").html(datePublic(+news.list[i].date)).appendTo(this);
+                $("<span class='public'>Public: </span>").appendTo(this);
+                $("<p class='public-date'></p>").html(addPublicationDate(+news.list[i].date)).appendTo(this);
             });
             $('.carousel').bxSlider();
         }
@@ -90,7 +92,6 @@ function addChart(arr) {
         var options = {
             is3D: true
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
@@ -102,7 +103,7 @@ function truncate(str, maxlength) {
     }
     return str;
 }
-function datePublic(date) {
+function addPublicationDate(date) {
     var date = new Date(date);
     var day = date.getDate();
     var month = '' + date.getMonth() + 1;
