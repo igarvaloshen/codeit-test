@@ -267,7 +267,8 @@ input:focus:-ms-input-placeholder {
     overflow: hidden;
     overflow-x: scroll;
     max-height: 370px;
-    white-space: nowrap; }
+    white-space: nowrap;
+    text-align: center; }
     .comp-partners-box ul li {
       margin-right: 20px; }
   .comp-partners-box .circle {
